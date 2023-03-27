@@ -1,4 +1,4 @@
-# Leaderboard app
+# Math magicians
 
 # 📗 Table of Contents
 
@@ -21,9 +21,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [React-application] <a name="about-project"></a>
+# 📖 [Math_magicians] <a name="about-project"></a>
 
-**[React]**
+**[Math_magicians]**
 This project enables you to calculate digits by adding, subtracting, dividing and multiplying.
 
 ## 🛠 Built With <a name="built-with"></a>
