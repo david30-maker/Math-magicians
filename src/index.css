@@ -16,8 +16,8 @@ body {
 }
 
 .wrapper {
-  width: 340px;
-  height: 540px;
+  width: 350px;
+  height: 550px;
   padding: 10px;
   border-radius: 10px;
   background-color: #485461;
@@ -36,7 +36,7 @@ body {
   justify-content: flex-end;
   color: white;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 3.8rem;
   box-sizing: border-box;
 }
 
@@ -46,14 +46,14 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  grid-gap: 2px;
+  grid-gap: 0.3rem;
 }
 
 
 button {
   border: none;
   background-color: rgb(158, 154, 180);
-  font-size: 24px;
+  font-size: 1.5rem;
   color: rgb(20, 20, 20);
   font-weight: bold;
   cursor: pointer;
@@ -61,7 +61,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(184, 173, 255);
+  background-color: rgb(210, 207, 228);
 }
 
 .equals {
