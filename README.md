@@ -62,7 +62,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 - git clone git@github.com:david30-maker/Math-magicians.git
-- cd react-application
+- cd Math-magicians
 
 ### Install
 
