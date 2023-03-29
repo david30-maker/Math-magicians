@@ -12,7 +12,7 @@ export const ButtonBox = ({ children }) => <div className="buttonBox">{children}
 const getStyleName = btn => {
     const className = {
         '0': 'zero',
-        '/': 'operator',
+        '÷': 'operator',
         'x': 'operator',
         '-': 'operator',
         '+': 'operator',
