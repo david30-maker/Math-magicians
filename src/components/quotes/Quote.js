@@ -1,60 +1,60 @@
 import React, { useState, useEffect } from 'react';
 
 const Quote = () => {
-  const [quote, setQuote] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+    const [quote, setQuote] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-    return () => {
-      setIsMounted(false);
-    };
-  }, []);
+    useEffect(() => {
+        setMounted(true);
+        return () => {
+            setMounted(false);
+        };
+    }, []);
 
-  useEffect(() => {
-    const fetchQuote = async () => {
-      setIsLoading(true);
-      setIsError(false);
+    useEffect(() => {
+        const fetchQuote = async () => {
+            setLoading(true);
+            setError(false);
 
-      try {
-        const response = await fetch('https://api.api-ninjas.com/v1/quotes?category=happiness', {
-          headers: {
-            'X-Api-Key': 'jzzfew774Kqg+nf2AkhCAw==pIwj1VNrBEBwQ0lW',
-            'Content-Type': 'application/json',
-          },
-        });
+            try {
+                const res = await fetch('https://api.api-ninjas.com/v1/quotes?category=happiness', {
+                    headers: {
+                        'X-Api-Key': 'jzzfew774Kqg+nf2AkhCAw==pIwj1VNrBEBwQ0lW',
+                        'Content-Type': 'application/json',
+                    },
+                });
 
-        const data = await response.json();
-        if (isMounted) {
-          // console.log(data); PLEASE DO NOT REMOVE THIS LINE ,
-          // for some reason the api does not properly work without it
-          // There is some issue with api ninja.
-          setQuote(data[0].quote);
-          setIsLoading(false);
-        }
-      } catch (error) {
-        setIsError(true);
-        setIsLoading(false);
-      }
-    };
-    fetchQuote();
-  }, [isMounted]);
+                const data = await res.json();
+                if (mounted) {
+                    // console.log(data); PLEASE DO NOT REMOVE THIS LINE ,
+                    // for some reason the api does not properly work without it
+                    // There is some issue with api ninja.
+                    setQuote(data[0].quote);
+                    setLoading(false);
+                }
+            } catch (error) {
+                setError(true);
+                setLoading(false);
+            }
+        };
+        fetchQuote();
+    }, [mounted]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+    if (loading) {
+        return <span>Loading...</span>;
+    }
 
-  if (isError) {
-    return <div>Failed to fetch quote.</div>;
-  }
+    if (error) {
+        return <span>Something went wrong...</span>;
+    }
 
-  return (
-    <div>
-      <p>{quote}</p>
-    </div>
-  );
+    return (
+        <div>
+            <span>{quote}</span>
+        </div>
+    );
 };
 
 export default Quote;
