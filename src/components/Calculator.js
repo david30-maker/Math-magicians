@@ -1,27 +1,47 @@
-/*eslint-disable*/
-export const Wrapper = ({ children }) => <div className="wrapper">{children}</div>;
+import React, { useState } from 'react';
+import classes from './Calculator.module.css';
+import calculate from './logic/calculate';
 
-export const Screen = ({ value }) => (
-    <div className="screen" mode="single" max={70}>
-        {value}
-    </div>
-);
+const Calculator = () => {
+  const [calculatorValue, setCalculatorValue] = useState({
+    total: null,
+    next: null,
+    operation: null,
+  });
 
-export const ButtonBox = ({ children }) => <div className="buttonBox">{children}</div>;
+  const handleClick = (buttonName) => {
+    const newValue = calculate(calculatorValue, buttonName);
+    setCalculatorValue(newValue);
+  };
 
-const getStyleName = btn => {
-    const className = {
-        '0': 'zero',
-        '/': 'operator',
-        'x': 'operator',
-        '-': 'operator',
-        '+': 'operator',
-        '=': 'equals'
-    }
-    return className[btn]
-}
-export const Button = ({ value, onClick }) => (
-    <button className={`${getStyleName(value)} button`} onClick={onClick}>
-        {value}
-    </button>
-);
+  const displayValue = calculatorValue.next || calculatorValue.total || '0';
+
+  return (
+    <>
+      <div className={classes.calculator}>
+        <div className={classes.data}>{displayValue}</div>
+        <button type="button" onClick={() => handleClick('AC')}>AC</button>
+        <button type="button" onClick={() => handleClick('+/-')}>+/-</button>
+        <button type="button" onClick={() => handleClick('%')}>%</button>
+        <button type="button" className={classes.opera} onClick={() => handleClick('÷')}>÷</button>
+        <button type="button" onClick={() => handleClick('7')}>7</button>
+        <button type="button" onClick={() => handleClick('8')}>8</button>
+        <button type="button" onClick={() => handleClick('9')}>9</button>
+        <button type="button" className={classes.opera} onClick={() => handleClick('x')}>x</button>
+        <button type="button" onClick={() => handleClick('4')}>4</button>
+        <button type="button" onClick={() => handleClick('5')}>5</button>
+        <button type="button" onClick={() => handleClick('6')}>6</button>
+        <button type="button" className={classes.opera} onClick={() => handleClick('-')}>-</button>
+        <button type="button" onClick={() => handleClick('1')}>1</button>
+        <button type="button" onClick={() => handleClick('2')}>2</button>
+        <button type="button" onClick={() => handleClick('3')}>3</button>
+        <button type="button" className={classes.opera} onClick={() => handleClick('+')}>+</button>
+        <button type="button" className={classes.zeros} onClick={() => handleClick('0')}>0</button>
+        <button type="button" onClick={() => handleClick('.')}>.</button>
+        <button type="button" className={classes.equals} onClick={() => handleClick('=')}>=</button>
+      </div>
+    </>
+  );
+};
+
+export default Calculator;
