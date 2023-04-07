@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import classes from '../quote.module.css';
 
+// return (
+//   <div className={classes.quoteContent}>
+//     <div className={classes.quote}>
+//       <Quote />
+//     </div>
+//     </div>
+//     );
+
 const Quote = () => {
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
@@ -44,10 +52,20 @@ const Quote = () => {
 
   return (
     <div className={classes.content}>
+      <div className={classes.quoteContent}>
+        <div className={classes.quote}>
+          <Quote />
+        </div>
+      </div>
       {loading && <div>Loading...</div>}
       {error && <div>Something went wrong...</div>}
       {loading && !error && (
         <div>
+          <div className={classes.quoteContent}>
+            <div className={classes.quote}>
+              <Quote />
+            </div>
+          </div>
           <p>
             &#34;
             {quote}

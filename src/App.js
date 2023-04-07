@@ -4,7 +4,6 @@ import Home from './components/Home';
 import Root from './components/root';
 import Calculator from './components/Calculator';
 import Quote from './components/quotes/quotePage';
-// import Quote from './components/quotes/Quote';
 
 const App = () => (
   <BrowserRouter>
