@@ -1,0 +1,19 @@
+.homepage-content {
+  margin: 0 20px;
+  text-align: left;
+}
+
+.homepage-title {
+  font-size: 46px;
+  font-weight: bold;
+  color: #1f252b;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+.homepage-text {
+  font-size: 18px;
+  color: #727171;
+  line-height: 1.5;
+  margin-bottom: 50px;
+}

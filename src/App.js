@@ -1,19 +1,19 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Root from './components/root';
 import Calculator from './components/Calculator';
-import Quote from './components/quotes/Quote';
+import Quote from './components/quotes/quotePage';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Math magician</h1>
-      <div className="calculator">
-        <Calculator />
-      </div>
-      <div className="quote">
-        <Quote />
-      </div>
-    </div>
-  );
-}
-
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Root />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/quotes" element={<Quote />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
 export default App;

@@ -12,6 +12,29 @@
   height: 75vh;
 }
 
+.Calculator {
+  position: fixed;
+  right: 18px;
+  bottom: 25px;
+}
+
+.quotContent {
+  margin: 50px 30px;
+  width: 50%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fee;
+  border-radius: 10px;
+}
+
+.quote {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .data {
   grid-column: 1 / span 4;
   padding: 18px;
